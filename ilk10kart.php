@@ -1,4 +1,3 @@
-fjavbsflna
 <?php
 $username= $_COOKIE['username'];
 $id= $_COOKIE['id'];
