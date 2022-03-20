@@ -95,8 +95,8 @@
 						</a>
 					</div>-->
 
-					<div class="text-center p-t-136">
-						<a class="txt2" href="kaydol.php">
+					<div class="text-center p-t-36">
+						<a class="txt5" href="kaydol.php">
 							Kaydolmak için tıklayın
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>

@@ -1,10 +1,23 @@
 <?php
 $username= $_COOKIE['username'];
-$password= $_COOKIE['password'];
-if($username==""){
-    header("Location: giris.php");
-}
+$id= $_COOKIE['id'];
+$link = mysqli_connect("localhost", "root", "","isim_sifre");
+$row = mysqli_query($link,"SELECT * from kartlar1_10 where id=$id")
+or die("Veritabanına eylem yapılırken gelen hata: ".mysqli_error($link));
+$result = mysqli_fetch_array($row);
+echo $result["kart1"];
+setcookie("kart1",$result['kart1'],time()+6000);
+setcookie("kart2",$result['kart2'],time()+6000);
+setcookie("kart3",$result['kart3'],time()+6000);
+setcookie("kart4",$result['kart4'],time()+6000);
+setcookie("kart5",$result['kart5'],time()+6000);
+setcookie("kart6",$result['kart6'],time()+6000);
+setcookie("kart7",$result['kart7'],time()+6000);
+setcookie("kart8",$result['kart8'],time()+6000);
+setcookie("kart9",$result['kart9'],time()+6000);
+setcookie("kart10",$result['kart10'],time()+6000);
 ?>
+
 <?php include_once("header.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,21 +26,11 @@ if($username==""){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
 <body>
-<?php echo "Hoşgeldiniz $username"; ?>
-<script>
-    var cookie_string = document.cookie;
-    //string ifadeyi ';' ifadesine göre parçalıyoruz ve diziye ceviriyoruz. Dizide 'cerez_ismi=cerez_degeri' seklinde depolaniyorlar 
-    var cerezler = document.cookie.split(";");
-    for (var i = 0; i < cerezler.length; i++) { //dizi icerisinde donuyoruz 
-        var cookiePair = cerezler[i].split("="); //'cerez_ismi=cerez_degeri' seklindeki verileri '=' ifadesine gore parcaliyoruz ve cerez_degeri degiskenine aktariyoruz
-        if("username" == cookiePair[0].trim()) { //isminin 'cerez ismi' olup olmadigini kontrol ediyoruz. Esitse 
-            document.getElementById("ProfilAdi").innerHTML = cookiePair[1];//alert(cookiePair[1]); //cerezin degerini ekrana yazdiriyoruz 
-        }
-}
-    
-    document.getElementById("ProfilAdi").innerHTML = username;
-</script>
+
+
+
 </body>
 </html>

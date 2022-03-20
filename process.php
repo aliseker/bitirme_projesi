@@ -21,7 +21,7 @@
   
 
   $link = mysqli_connect("localhost", "root", "","isim_sifre");
-  $result = mysqli_query($link,"select * from users where username = '$username' ")
+  $result = mysqli_query($link,"SELECT * from users where username = '$username' ")
     or die("Veritabanına eylem yapılırken gelen hata: ".mysqli_error($link));
 // -----------
 
@@ -38,17 +38,24 @@
       <strong>&emsp;Hesabın Başarıyla oluşturuldu!</strong>&emsp;Şimdi ingilizce öğrenmen için seni anasayfaya ışınlıyorum bol şans çekirge!
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
-    setcookie("username",$username,time()+600);
-    setcookie("password",$password,time()+600);
-    header("Refresh: 5; url=index.php");
+    setcookie("username",$username,time()+6000);
+    $result = mysqli_query($link,"select id from users where username = '$username' ")
+    or die("Veritabanına eylem yapılırken gelen hata: ".mysqli_error($link));
+    $row = mysqli_fetch_array($result);
+    $id=$row['id'];
+    $result = mysqli_query($link,"INSERT INTO kartlar1_10 (id) VALUES ('$id')");
+    $result = mysqli_query($link,"INSERT INTO kartlar11_20 (id) VALUES ('$id')");
+    $result = mysqli_query($link,"INSERT INTO kartlar21_30 (id) VALUES ('$id')");
+    setcookie("id",$id,time()+6000);
+    header("Refresh: 2; url=index.php");
     
     } else {
       echo "Error: " . $sql . "<br>" . mysqli_error($link);
-      header("Refresh: 5; url=kaydol.php");
+      header("Refresh: 2; url=kaydol.php");
     }
   }
 
-  mysqli_close($link);
+
 ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

@@ -29,15 +29,19 @@ if ($row['username'] == $username && $row['password'] == $password ){
       <strong>&emsp;Başarıyla Oturum Açıldı!</strong>&emsp;Şimdi ingilizce öğrenmen için seni anasayfaya ışınlıyorum bol şans çekirge!
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
-    setcookie("username",$username,time()+600);
-    setcookie("password",$password,time()+600);
-    header("Refresh: 5; url=index.php");
+    setcookie("username",$username,time()+6000);
+    $result = mysqli_query($link,"select id from users where username = '$username' ")
+    or die("Veritabanına eylem yapılırken gelen hata: ".mysqli_error($link));
+    $row = mysqli_fetch_array($result);
+    $id=$row['id'];
+    setcookie("id",$id,time()+6000);
+    header("Refresh: 2; url=index.php");
 } else {
     echo '<div class="alert alert-warning alert-dismissible w-75 show m-5" role="alert">
       <strong>Hatalı Kullanıcı adı veya şifre</strong>&emsp;
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
-    header("Refresh: 3; url=giris.php");
+    header("Refresh: 2; url=giris.php");
 }
 ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
