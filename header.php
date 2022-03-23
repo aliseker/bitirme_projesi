@@ -1,10 +1,6 @@
 <?php
 $username= $_COOKIE['username'];
-$password= $_COOKIE['password'];
 $id= $_COOKIE['id'];
-if($username==""){
-  header("Refresh:0; url=giris.php");
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +8,6 @@ if($username==""){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -32,7 +27,6 @@ if($username==""){
         <nav class="navbar navbar-expand-xl navbar-dark sticky-top" style="background-color: #6E7783;">
             <div class="container-fluid">
                 <a class="navbar-brand ps-5" href="#">
-                
                   İngilizce Öğrenelim
                 </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,13 +76,16 @@ if($username==""){
                        Puan 2
                     </a>
                   </li>
-                  <li class="nav-item px-5">
-                    <a class="nav-link" href=#>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    </svg>
-                        <span id="ProfilAdi">Profil</span>
+                  <li class="nav-item dropdown px-5">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <span id="ProfilAdi">username</span>
                     </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown" style="background-color: #6E7783;">
+                      <li><a class="dropdown-item" style="color: #fff;" href="#">Profil</a></li>
+                      <li><a class="dropdown-item" style="color: #fff;" href="#">Eşyalarım</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" style="color: #f55;" href="cikis.php">Çıkış Yap</a></li>
+                    </ul>
                   </li>
                 </ul>
               </div>
@@ -96,8 +93,15 @@ if($username==""){
           </nav>
     </header>
 <script>
-    var cookie_string = document.cookie;
-    //string ifadeyi ';' ifadesine göre parçalıyoruz ve diziye ceviriyoruz. Dizide 'cerez_ismi=cerez_degeri' seklinde depolaniyorlar 
+function getCookieByName(name){
+  var cerezler = document.cookie.split(";");
+    for (var i = 0; i < cerezler.length; i++) { //dizi icerisinde donuyoruz 
+        var cookiePair = cerezler[i].split("="); //'cerez_ismi=cerez_degeri' seklindeki verileri '=' ifadesine gore parcaliyoruz ve cerez_degeri degiskenine aktariyoruz
+        if(name == cookiePair[0].trim()) { //isminin 'cerez ismi' olup olmadigini kontrol ediyoruz. Esitse 
+            return cookiePair[1];//alert(cookiePair[1]); //cerezin degerini ekrana yazdiriyoruz 
+        }
+  }
+}
     var cerezler = document.cookie.split(";");
     for (var i = 0; i < cerezler.length; i++) { //dizi icerisinde donuyoruz 
         var cookiePair = cerezler[i].split("="); //'cerez_ismi=cerez_degeri' seklindeki verileri '=' ifadesine gore parcaliyoruz ve cerez_degeri degiskenine aktariyoruz
@@ -106,6 +110,7 @@ if($username==""){
         }
 }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </body>
 </html>
