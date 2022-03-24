@@ -102,13 +102,7 @@ function getCookieByName(name){
         }
   }
 }
-    var cerezler = document.cookie.split(";");
-    for (var i = 0; i < cerezler.length; i++) { //dizi icerisinde donuyoruz 
-        var cookiePair = cerezler[i].split("="); //'cerez_ismi=cerez_degeri' seklindeki verileri '=' ifadesine gore parcaliyoruz ve cerez_degeri degiskenine aktariyoruz
-        if("username" == cookiePair[0].trim()) { //isminin 'cerez ismi' olup olmadigini kontrol ediyoruz. Esitse 
-            document.getElementById("ProfilAdi").innerHTML = cookiePair[1];//alert(cookiePair[1]); //cerezin degerini ekrana yazdiriyoruz 
-        }
-}
+document.getElementById("ProfilAdi").innerHTML = getCookieByName("username");
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>

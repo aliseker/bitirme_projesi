@@ -47,6 +47,36 @@
     $result = mysqli_query($link,"INSERT INTO kartlar11_20 (id) VALUES ('$id')");
     $result = mysqli_query($link,"INSERT INTO kartlar21_30 (id) VALUES ('$id')");
     setcookie("id",$id,time()+6000);
+    setcookie("kart1_iknow",0,time()+6000);
+    setcookie("kart2_iknow",0,time()+6000);
+    setcookie("kart3_iknow",0,time()+6000);
+    setcookie("kart4_iknow",0,time()+6000);
+    setcookie("kart5_iknow",0,time()+6000);
+    setcookie("kart6_iknow",0,time()+6000);
+    setcookie("kart7_iknow",0,time()+6000);
+    setcookie("kart8_iknow",0,time()+6000);
+    setcookie("kart9_iknow",0,time()+6000);
+    setcookie("kart10_iknow",0,time()+6000);
+    setcookie("kart11_iknow",0,time()+6000);
+    setcookie("kart12_iknow",0,time()+6000);
+    setcookie("kart13_iknow",0,time()+6000);
+    setcookie("kart14_iknow",0,time()+6000);
+    setcookie("kart15_iknow",0,time()+6000);
+    setcookie("kart16_iknow",0,time()+6000);
+    setcookie("kart17_iknow",0,time()+6000);
+    setcookie("kart18_iknow",0,time()+6000);
+    setcookie("kart19_iknow",0,time()+6000);
+    setcookie("kart20_iknow",0,time()+6000);
+    setcookie("kart21_iknow",0,time()+6000);
+    setcookie("kart22_iknow",0,time()+6000);
+    setcookie("kart23_iknow",0,time()+6000);
+    setcookie("kart24_iknow",0,time()+6000);
+    setcookie("kart25_iknow",0,time()+6000);
+    setcookie("kart26_iknow",0,time()+6000);
+    setcookie("kart27_iknow",0,time()+6000);
+    setcookie("kart28_iknow",0,time()+6000);
+    setcookie("kart29_iknow",0,time()+6000);
+    setcookie("kart30_iknow",0,time()+6000);
     header("Refresh: 2; url=index.php");
     
     } else {
