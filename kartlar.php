@@ -63,7 +63,6 @@ setcookie("kart30",$result['kart30'],time()+6000);
 ?>
 
 <?php include_once("header.php");
-echo $_COOKIE['kart1_iknow'];
 ?>
 
 <?php include_once("kartlar1_10.php");?>
