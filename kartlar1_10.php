@@ -139,7 +139,7 @@ $kart30 = $_COOKIE['kart30'];
   .basari{
     display: grid;
     grid-template-columns: auto auto auto auto auto;
-    column-gap: 0.3rem;
+    column-gap: 1rem;
     margin: 1rem;
   }
   .kelime{
@@ -149,8 +149,8 @@ $kart30 = $_COOKIE['kart30'];
 
 </head>
 <body>
-<div class="alert alert-info alert-dismissible w-75 show mx-auto" role="alert">
-    <i class="bi bi-info-circle-fill"></i><strong class="primary">&emsp;DİKKAT!</strong>&emsp;Kelime kartlarının arkasındaki resimler rastgeledir. Sakın Kafan karışmasın :)
+<div class="alert alert-info alert-dismissible w-75 show mx-auto my-3" role="alert">
+    <i class="bi bi-info-circle-fill"></i><strong class="primary">&emsp;DİKKAT!</strong>&emsp;Kelime kartlarının arkasındaki resimler rastgeledir. Sakın Kafanı karıştırmasın :)
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 
@@ -191,7 +191,7 @@ $kart30 = $_COOKIE['kart30'];
               </svg>
             </div>
             <input type="submit" id="iknow1" value="Biliyorum" name="iknow1" class="btn btn-success">
-            <input type="button" id="idk1" value="Öğren" name="idk1" class="btn btn-danger">
+            <a href="kelime_ogren/kart1_ogren.php" class="btn btn-danger">Öğren</a>
           </form>
         </div>
       </div>
@@ -634,6 +634,5 @@ for(i=1;i<11;i++){
   }
 }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

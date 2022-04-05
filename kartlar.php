@@ -69,7 +69,5 @@ setcookie("kart30",$result['kart30'],time()+6000);
 <?php
 
 ?>
-
-
 </body>
 </html>
